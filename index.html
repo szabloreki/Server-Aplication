@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+<body>
+	<div id="container" >
+    <div id = "Information">
+    </div>       
+    <div id = "menu">
+     <form>
+        Wpisz Użytkownika do dodania <input type = "text"  id= "AddUserText">  <input type = "button" value = "Dodaj" id = "AddUser">
+     </form>   
+     <form>
+        dla użytkownika  <input type = "text" id ="UserNameWork" >
+        dodaj pracę  <input type = "text" id="WorkText" placeholder="co ma zrobić?"> <input type = "button" id = "AddWork" value = "Dodaj">
+    </form>   
+     <form>
+    Sprawdź jaką pracę wykonuje, pracownik <input type = "text"  id ="User">  <input type = "button" value = "Sprawdź" id="UserWork">
+    </form>  
+    <form>
+        Usuń pracownika <input type = "text"  id ="RemoveUserText">  <input type = "button" value = "Usuń" id="RemoveUser">
+    </form>      
+     <form> 
+        <input type = "button" value = "Pokaż wszystkich pracowników" id = "CheckWorkers">
+    </form> 
+    <form> 
+        <input type = "button" value = "Pokaż wykonywane prace" id ="AllWorks">
+    </form>
+    <form>
+    <input type = "button" value = "Podglądnij" id="TargetLoop">
+    </form>
+    <form>
+        szukaj <input type = "text" id ="explorel"> 
+    </form>
+    <form> 
+    tylko gdy jest: <input type = "button" value = "Zaznacz" id="Target">
+    </form>
+    <form>
+        dodaj pracę  <input type = "text" id="WorkTextMultiple" placeholder="co ma zrobić?"> <input type = "button"  id= "multipleWork" value = "DodajPracęGrupie">
+    </form>
+    <form>
+        Usuń Grupę <input type = "button" value = "Usuń" id="RemoveUsers">
+    </form> 
+    <form>
+        <br>
+        <label>LocalStorage</label> <br>
+        <input type = "button" value = "Zapisz" id="saveWorkers">
+    </form>
+    <form>
+        <input type = "button" value = "Wczytaj" id="loadWorkers">
+    </form>
+          <br>
+          <label>Ajax</label> <br>
+         <input type="button" value="pobierz" id = "download">
+         <input type="button" value ="wyślij" id = "send">
+    <form>
+
+    </div>
+    <div id = 'content'>
+        <ol id ="listOfElements">
+        </ol>
+    </div>
+    <div style = "clear: both;"> </div>    
+    </div>
+</body>
+    <script src ="public/js/AddEventListeners.js"></script>
+    <script src = "public/js/Ajax.js"></script>
+    <script src ="public/js/Console.js"></script>
+    <script src ="public/js/createDOM.js"></script>
+    <script src ="public/js/DataBaseJson.js"></script>
+    <script src ="public/js/explorel.js"></script>
+    <script src ="public/js/Gui.js"></script>
+    <script src ="public/js/OptionsPeople.js"></script>
+    <script src ="public/js/People.js"></script>
+
+</html>
