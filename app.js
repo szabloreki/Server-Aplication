@@ -19,20 +19,13 @@
 
 	app.get('/',  function(req, res){
 		db.users.find(function (err, docs) {
-			//console.log(docs);
-			//res.render('index', {
-			//	title: 'Customers',
-			//	users: docs
-		///	})
+		
 		});
 		res.sendFile(path.join(__dirname + '/index.html'));
-		//res.json(people)
 	}); 
-
 
 	app.get('/server/ajax' ,function (req, res){
 			db.users.find(function (err, docs) {
-			//console.log(docs);
 			res.json(docs);
 		});
 	});
@@ -80,5 +73,4 @@
 
 	app.listen(3000, function() {
 			console.log('Server Started on Port 3000...')
-		// body...
 	});
