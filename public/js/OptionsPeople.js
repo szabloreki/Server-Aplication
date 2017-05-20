@@ -4,6 +4,7 @@ class OptionsPeople {
         people.push(human);
         console.log(people);
         information.changeInformation('Dodano pracownika ' + name + '!');
+        ajax.addWorker(human);
      }   
  showName (){
       for(let i =0; i<people.length; i++){
@@ -19,6 +20,7 @@ class OptionsPeople {
                             people[number].work.push(work);
                             console.log(people[number].name   + ' Dostał robotę' + ' ' + people[number].work);
                             information.changeInformation(people[number].name + ' dostał pracę!');
+                            ajax.updateWorker(people[number]);
                         }
                 }   
           }
@@ -70,9 +72,9 @@ class OptionsPeople {
  removeUser (name){
      for(let i=0; i < people.length; i++){
          if(people[i].name === name){
-             people.splice(i, 1);
-             console.log(people);
              information.changeInformation(`Usunięto pracownika ${name}' !` );
+             ajax.removeWorker(people[i]);
+             people.splice(i, 1);
              return;
          }
      }

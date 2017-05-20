@@ -1,23 +1,11 @@
 class Ajax {
-	send (){
-		console.log(this);
-        let peopleJson = JSON.stringify(people);
-        if(people.length === 0){
-        	information.changeInformation('Nie ma co wysłać!');
-        	return;
-        }
-        console.log(peopleJson);
-        let xml = new XMLHttpRequest();
-        xml.open("POST", "/addToDataBase", true);
-        xml.setRequestHeader("Content-Type", "application/json");
-        xml.send(peopleJson);
-	}
+
 	download (){
 		let xhr = new XMLHttpRequest();
 	    xhr.onreadystatechange = function() {
 	    if (xhr.readyState == XMLHttpRequest.DONE) {
 	        var jsonObj = JSON.parse(xhr.responseText);
-
+            
 	        for(let i=0; i<jsonObj.length; i++){
 	        jsonObj[i].checkIfWorkExisted   = function(work,arrayWork){
 	                 for(let i =0; i < arrayWork.length; i++){
@@ -30,7 +18,6 @@ class Ajax {
 	               return true;   
 	             }
 	        }
-
 	        people = jsonObj;
 	        console.log(jsonObj);
 	        alert(xhr.responseText);
@@ -39,5 +26,24 @@ class Ajax {
 	    xhr.open('GET', '/server/ajax', true);
 	    xhr.send(null);
 	}
+
+   addWorker (worker){
+        this.shorter(worker, "/addToDataBase");
+   }
+   removeWorker (workerToRemove){
+        this.shorter(workerToRemove, "/removeWorker");
+   }
+   updateWorker (workerToUpdate){
+        this.shorter(workerToUpdate, "/updateWorker")
+   }
+
+   shorter (date, url){
+        let Json = JSON.stringify(date);
+        console.log(Json);
+        let xml = new XMLHttpRequest();
+        xml.open("POST",url, true);
+        xml.setRequestHeader("Content-Type", "application/json");
+        xml.send(Json);
+   }
 }
 let ajax = new Ajax();
