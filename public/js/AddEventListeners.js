@@ -3,7 +3,6 @@ class Listeners {
         this.userAdd = document.querySelector('#AddUser');
         this.inputText = document.querySelector('#AddUserText');
         this.showWorkers = document.querySelector('#CheckWorkers');
-        this.userNameWork = document.querySelector('#UserNameWork');
         this.workText = document.querySelector('#WorkText');
         this.workTextMulitple = document.querySelector('#WorkTextMultiple')
         this.addWork = document.querySelector('#AddWork');
@@ -17,10 +16,6 @@ class Listeners {
         this.multipleWork = document.querySelector('#multipleWork');
         this.removeUsers = document.querySelector('#RemoveUsers');
         this.explorel = document.querySelector('#explorel')
-        this.saveWorkers = document.querySelector('#saveWorkers');
-        this.loadWorkers = document.querySelector('#loadWorkers');
-        this.download = document.querySelector('#download');
-        this.send = document.querySelector('#send');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -127,16 +122,6 @@ listener.addListener(listener.showWorkers, function(){
         let arrayDOM = genereteDOM.nameWorkers();    
         gui.showDOM(arrayDOM);
 });
-listener.addListener(listener.addWork, function (){
-    let name = listener.userNameWork.value;
-    let workString = listener.workText.value;
-    let arrayName = [];
-    
-    arrayName.push(name);
-    console.log(name, workString);
-    console.log(this);
-    optionsPeople.addWork(arrayName,workString);
-});
 listener.addListener(listener.userWork, function(){
     let UserName = listener.User.value;
     optionsPeople.checkWork(UserName);
@@ -150,10 +135,6 @@ listener.addListener(listener.allWorks, function (){
     ArrayDOM.sort();
     console.log(ArrayDOM);
     gui.showWork(ArrayDOM);
-});
-listener.addListener(listener.removeUser, function (){
-    let name = listener.removeUserText.value;
-    listener.removeOne(name);
 });
 listener.addListener(listener.target , function(){
     let button = this;
@@ -180,16 +161,4 @@ listener.addListener(listener.multipleWork, function (){
 });
 listener.addListener(listener.removeUsers, function (){
         listener.removeMultiple();
-});
-listener.addListener(listener.saveWorkers, function (){
-    dataBase.save();
-});
-listener.addListener(listener.loadWorkers, function (){
-    dataBase.load();
-});
-listener.addListener(listener.download, function (){
-    ajax.download();
-});
-listener.addListener(listener.send, function (){
-    ajax.send();
 });
