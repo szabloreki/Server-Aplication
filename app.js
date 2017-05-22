@@ -1,8 +1,8 @@
-	let express = require('express');
-	let bodyParser = require('body-parser');
-	let path = require('path');
-	let expressValidator = require('express-validator')
-	let mongojs = require('mongojs');
+	const express = require('express');
+	const bodyParser = require('body-parser');
+	const path = require('path');
+	const expressValidator = require('express-validator')
+	const mongojs = require('mongojs');
 	let db = mongojs('workers', ['users']);
 	let app = express();
 
