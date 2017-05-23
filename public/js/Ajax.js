@@ -45,5 +45,21 @@ class Ajax {
         xml.setRequestHeader("Content-Type", "application/json");
         xml.send(Json);
    }
+
+   register (date){
+   		this.shorter(date, "/register")
+   }
+
+   toRegister(date){
+
+
+   	this.shorter(date ,'/toRegister');
+
+   }
+
+
+
+
+
 }
 let ajax = new Ajax();

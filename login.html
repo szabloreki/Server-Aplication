@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="stylesheet" href="public/style.css" type="text/css" />
+</head>
+<body>
+    <form>
+    <br>
+    <label>Password</label>
+    <br>
+    <input type = "password" placeholder="password" id = "password">
+    <br>
+    <label>Login</label>
+    <br>
+    <input type = "text" placeholder="login" id = "login">
+    <br>
+    <input type = "button" value= "zaloguj" id ="register">
+    </form>
+    <br>
+    <div id = "toRegister">
+           <a  href = "/register"> href  Nie masz konta? Zarejestruj się:</a>     
+    </div>
+    <br>
+</body>
+    
+    <script type="text/javascript" src ="public/js/People.js"></script>
+    <script type="text/javascript" src ="public/js/Ajax.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+    let toRegister = document.querySelector('#toRegister');
+
+    toRegister.addEventListener('click', function (){
+        
+        ajax.toRegister({name : "kasia"});
+        
+    }, false);
+        
+        
+        
+        
+        
+
+
+
+    console.log(people);
+
+
+
+
+
+
+
+
+
+    </script>
+</html>

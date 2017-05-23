@@ -15,7 +15,15 @@ class Listeners {
         this.targetLoop = document.querySelector('#TargetLoop');
         this.multipleWork = document.querySelector('#multipleWork');
         this.removeUsers = document.querySelector('#RemoveUsers');
-        this.explorel = document.querySelector('#explorel')
+        this.explorel = document.querySelector('#explorel');
+
+        //register
+        this.userName = document.querySelector('#userName');
+        this.lastName = document.querySelector('#lastName');
+        this.email = document.querySelector('#email');
+        this.password = document.querySelector('#password');
+        this.login = document.querySelector('#login');
+        this.register = document.querySelector('#register');
     }
     addListener (element,functioN){
         element.addEventListener('click',functioN,false);
@@ -161,4 +169,39 @@ listener.addListener(listener.multipleWork, function (){
 });
 listener.addListener(listener.removeUsers, function (){
         listener.removeMultiple();
+});
+
+
+function getRegister(name,lastName,email,password,login){
+
+    let registery = {
+        UserName: name,
+        lastName: lastName,
+        email: email,
+        password: password,
+        login: login,
+    }
+    return registery;
+}
+
+
+listener.addListener(listener.register, function (){
+    console.log(this);
+    console.log(listener.userName);
+    console.log(listener.lastName);
+    console.log(listener.email);
+    console.log(listener.password);
+    console.log(listener.login);
+
+    let userName = listener.userName.value;
+    let lastName = listener.lastName.value;
+    let email = listener.email.value;
+    let login = listener.login.value;
+    let password = listener.password.value;
+
+    let date = getRegister(userName, lastName, email, login, password);
+    console.log(date);
+
+    ajax.register(date, '/register');
+
 });
