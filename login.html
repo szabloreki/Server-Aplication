@@ -10,56 +10,39 @@
 </head>
 <body>
     <form>
-    <br>
-    <label>Password</label>
-    <br>
-    <input type = "password" placeholder="password" id = "password">
-    <br>
     <label>Login</label>
     <br>
     <input type = "text" placeholder="login" id = "login">
-    <br>
-    <input type = "button" value= "zaloguj" id ="register">
     </form>
+    <label>Password</label>
+    <br>
+    <input type = "text" placeholder="password" id = "password">
+    <br>
+    <input type = "button" value= "zaloguj" id ="checkLogin">
     <br>
     <div id = "toRegister">
            <a  href = "/register"> href  Nie masz konta? Zarejestruj się:</a>     
     </div>
-    <br>
-</body>
-    
-    <script type="text/javascript" src ="public/js/People.js"></script>
-    <script type="text/javascript" src ="public/js/Ajax.js"></script>
+    <script src = "public/js/Ajax.js"></script>
+    <script> 
+    let login = document.querySelector('#checkLogin');
+    let textLogin = document.querySelector('#login');
+    let textPassword = document.querySelector('#password');
 
-
-
-    <script type="text/javascript">
-
-
-    let toRegister = document.querySelector('#toRegister');
-
-    toRegister.addEventListener('click', function (){
+    function returnToSend (){
         
-        ajax.toRegister({name : "kasia"});
-        
+        let date = {
+            login : textLogin.value,
+            password : textPassword.value,
+        }
+        return date;
+    };
+
+    login.addEventListener('click', function () {
+        let date = returnToSend(textLogin, textPassword);
+        let sendGet = ajax.login(date);
+        console.log(sendGet);
     }, false);
-        
-        
-        
-        
-        
-
-
-
-    console.log(people);
-
-
-
-
-
-
-
-
-
     </script>
+</body>
 </html>

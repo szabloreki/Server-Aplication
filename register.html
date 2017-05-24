@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="stylesheet" href="public/style.css" type="text/css" />
+</head>
+<body>
+	<form>
+    <br>
+    <label>Username</label>
+    <br>
+    <input type = "text" placeholder="username" id = "userName">
+    <br>
+    <label>Last Name</label>
+    <br>
+    <input type = "text" placeholder="last name" id = "lastName">
+    <br>
+    <label>Email</label>
+    <br>
+    <input type = "text" placeholder="email" id = "email">
+    <br>
+    <label>Password</label>
+    <br>
+    <input type = "password" placeholder="password" id = "password">
+    <br>
+    <label>Login</label>
+    <br>
+    <input type = "text" placeholder="login" id = "login">
+    <br>
+    <input type = "button" value= "rejestruj" id ="register">
+    </form>
+</body>
+    <script src = "public/js/Ajax.js"></script>
+	<script type="text/javascript">
+	function getRegister(name,lastName,email,password,login){
+		    let registery = {
+		        UserName: name,
+		        lastName: lastName,
+		        email: email,
+		        password: password,
+		        login: login,
+		    }
+		    return registery;
+		};
+	 	let userName = document.querySelector('#userName');
+        let lastName = document.querySelector('#lastName');
+        let email = document.querySelector('#email');
+        let password = document.querySelector('#password');
+        let login = document.querySelector('#login');
+        let register = document.querySelector('#register');
+
+	    register.addEventListener('click', function (){
+	
+	    let userName1 = userName.value;
+	    let lastName1 = lastName.value;
+	    let email1 = email.value;
+	    let login1 = login.value;
+	    let password1 = password.value;
+
+	    let date = getRegister(userName1, lastName1, email1, login1, password1);
+	    console.log(date);
+	    ajax.register(date, '/register');	
+		}, false);
+	</script>
+</html>
