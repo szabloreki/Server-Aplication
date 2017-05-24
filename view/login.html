@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="stylesheet" href="public/style.css" type="text/css" />
+</head>
+<body>
+    <form>
+    <label>Login</label>
+    <br>
+    <input type = "text" placeholder="login" id = "login">
+    </form>
+    <label>Password</label>
+    <br>
+    <input type = "text" placeholder="password" id = "password">
+    <br>
+    <input type = "button" value= "zaloguj" id ="checkLogin">
+    <br>
+    <div id = "toRegister">
+           <a  href = "/register"> href  Nie masz konta? Zarejestruj się:</a>     
+    </div>
+    <script src = "public/js/Ajax.js"></script>
+    <script> 
+    let login = document.querySelector('#checkLogin');
+    let textLogin = document.querySelector('#login');
+    let textPassword = document.querySelector('#password');
+
+    function returnToSend (){
+        
+        let date = {
+            login : textLogin.value,
+            password : textPassword.value,
+        }
+        return date;
+    };
+
+    login.addEventListener('click', function () {
+        let date = returnToSend(textLogin, textPassword);
+        let sendGet = ajax.login(date);
+        console.log(sendGet);
+    }, false);
+    </script>
+</body>
+</html>
