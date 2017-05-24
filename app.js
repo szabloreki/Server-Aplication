@@ -71,10 +71,22 @@
 			//	users: docs
 		///	})
 		});
+		res.sendFile(path.join(__dirname + '/register.html'));
+		//res.json(people)
+	});
+
+
+	app.get('/app',  function(req, res){
+		db.users.find(function (err, docs) {
+			//console.log(docs);
+			//res.render('index', {
+			//	title: 'Customers',
+			//	users: docs
+		///	})
+		});
 		res.sendFile(path.join(__dirname + '/index.html'));
 		//res.json(people)
-	});  
-
+	}); 
 
 	app.get('/server/ajax' ,function (req, res){
 			db.users.find(function (err, docs) {
@@ -95,13 +107,20 @@
 			res.json({ "name" : "a"});
 	});
 
+	app.post('/checkLogin' ,function (req, res){
+			let  loginData = req.body;
+			db.login.find(loginData,function(err,data){
+					console.log(data.length);
 
-	
-
-	app.get('/login', function (req, res){
+					if(data.length >= 1){
+						res.json({"login" : "true"})
+					}
+					else
+					{
+						res.json({"login" : "false"})
+					}
+			});
 	});
-
-
 	app.post('/removeWorker' ,function (req, res){
 			let  workers = req.body;
 			let toJson = {
