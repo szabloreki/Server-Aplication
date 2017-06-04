@@ -9,8 +9,8 @@ const router = require('express').Router()
 		next();
 	});
 	router.use("/public/", function (req, res) {
-		
-	    res.sendFile(path.join(__dirname + req.originalUrl));    
+
+	    res.sendFile(path.join(__dirname + req.originalUrl));
 	});
 
 	router.get('/',  function(req, res){
@@ -24,13 +24,10 @@ const router = require('express').Router()
 		res.sendFile(path.join(__dirname + '/view/login.html'));
 		//res.json(people)
 	});
-
-
 	router.get('/register',  function(req, res){
 		res.sendFile(path.join(__dirname + '/view/register.html'));
 		//res.json(people)
 	});
-
 
 	router.get('/app',  function(req, res){
 		db.users.find(function (err, docs) {
@@ -42,5 +39,11 @@ const router = require('express').Router()
 		});
 		res.sendFile(path.join(__dirname + '/view/index.html'));
 		//res.json(people)
-	}); 
+	});
+
+	router.get('/admin',  function(req, res){
+		res.sendFile(path.join(__dirname + '/admin/index.html'));
+		//res.json(people)
+	});
+
 module.exports = router;
