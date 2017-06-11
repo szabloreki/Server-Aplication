@@ -1,0 +1,222 @@
+michal
+[9:14 PM] 
+@szabloreki potrzebuje od Ciebie abys narazie nie robilfirebase -na to przejdziesz jak bedziesz ogarnial noda.
+
+[9:14] 
+Potrzebuje abys mi zrobil:
+
+[9:17] 
+Zadanie: API REST + CRUD:
+- Dla użytkowników
+
+Czyli:
+endpointy / końcówki dla:
+/api/users
+
+Gdzie ja jako frontend będę mógł dodawać osoby. Dodatkowo:
+jeżeli wyświetle metode w przeglądarce:
+GET /api/users - zwrocisz mi wszystkich urzytkownikow w jsonie
+GET/api/users/:id (wpisze id usera) - zwrocisz mi dane o jedynm userze
+POST /api/users wysle ci:
+--- login
+--- haslo
+to je zapiszesz do bazy do modelu users
+DELETE /api/users/:id - to usuniesz usera jak podam ci dane id
+
+[9:17] 
+Narazie tyle, i to bedzie nasza baza do ogarniecia
+
+[9:17] 
+express.js / node.js + mongodb.
+
+[9:18] 
+Czyli podzadania dla Ciebie:
+1. Poczytac co to jest API REST
+2. Poczytac co to jest CRUD
+3. Dowiedziec sie czym sa metody GET, POST, PUT, DELETE, PATCH
+4. Postawic aplikacje, tkora bedzie ogarniac zapytania co wyzej opisalem
+5. wszystko bedzie zwracac jako res.json() - wszystko w jsonach
+
+[9:19] 
+Czy to rozumiesz? Bo to jest krok pierwszy do reszty aplikacji, jak nie to smialo powiedz, to Ci pomoge i wytlumacze tego czego nie. Mozesz sie posilkowac innymi aplikacjami, masz dostęp do jakies aplikacji do Surprise - gdzie jest backend?
+
+szabloreki [9:19 PM] 
+nie bardzo możesz dac
+
+[9:19] 
+(propo aplikacji)
+
+michal
+[9:20 PM] 
+Mozesz mi wyslac twoj login github - to zaraz Cie dodam
+
+szabloreki [9:20 PM] 
+szabloreki
+
+[9:20] 
+jedna rzecz: GET/api/users/:id (wpisze id usera) - zwrocisz mi dane o jedynm userze
+
+[9:20] 
+pod czym tego szukać?
+
+michal
+[9:21 PM] 
+Wyslalem Ci zaproszenie -tam jest katalog serwer - i sa takie zapytania typu :id:
+
+[9:21] 
+no popatrz np w bazie masz taki obiekt:
+```[
+{
+_id: 1,
+email: michal@o2.pl
+password: 123
+},
+{
+_id: 2,
+email: asap@surprise.design
+password: xxx
+}
+
+```
+
+[9:22] 
+to jak ci wyske: GET`/api/users/1` - to zwracasz mi obiekt o michale tylko: czyli ten
+```{
+_id: 1,
+email: michal@o2.pl
+password: 123
+}
+```
+
+[9:22] 
+Dla podpowiedzi - _id generuje sie automatycznie
+
+szabloreki [9:23 PM] 
+te zapro jak sie nazywa?
+
+michal
+[9:23 PM] 
+Po ogladaj sobie na spokojnie ten katalog `/server/` w repo co Ci udostepnilem - na mailu masz zaproszenie
+
+[9:23] 
+— marion — ale musisz akceptowac na mailu zaproszenie -
+
+[9:24] 
+Dodatkowo Dawid, robie tez nowe repo o nazwie:
+managamentApi - i cie tam zaprosze, to twoje proboy i caly kod tam trzymaj ok?
+
+[9:25] 
+Pamietaj, zeby czesto commity robic /raz na 30 min ~ 1 h pracy
+
+szabloreki [9:25 PM] 
+dobra mam wysyląc cały kod na repo, które mi wyslesz na gmailu
+
+michal
+[9:25 PM] 
+Nie nie, na repo - managamentApi - masz miec tylko swoj kod
+
+[9:25] 
+a mozesz sie posilkowac kodem z marionu
+
+[9:26] 
+ale pamietaj aby poczytac o api rest, crud itd - tak jak napisalem, abys wiedzial dlaczego tak to dziala ok?
+
+szabloreki [9:26 PM] 
+acha ok i to na moim gicie?
+
+[9:26] 
+ok
+
+michal
+[9:26 PM] 
+Czy wszystkie zadania rozumiesz i czy masz jakies pytania?
+
+szabloreki [9:26 PM] 
+czas?
+
+[9:26] 
+(zaczynam od jutra)
+
+michal
+[9:27 PM] 
+1. - tutaj masz dodawac te rzeczy co ja ci zadalem:
+https://github.com/michalmw/managamentApi
+
+2. Jezeli chcesz sie posilkowac to z tego miejsca mozesz:
+https://github.com/michalmw/marion (musisz wpierw maila zaakceptowac aby zobaczyc to repo bo prywatne jest)
+GitHub
+michalmw/managamentApi
+Contribute to managamentApi development by creating an account on GitHub.
+ 
+
+[9:27] 
+Czas - jak by sie udalo do piatku bylo by super, jak wczesniej to tez fajnie. Biore pod uwage ze sie uczys - i ze sporo bedziemy to rozubodywac :wink:
+
+szabloreki [9:29 PM] 
+Dobra podsumowując mam zrobić apkę, która robi wszystko co jest zapisane powyżej w pkt do piątku
+
+[9:29] 
+i commity co 30m -1h mg ,spytać czemu tak często?
+
+michal
+[9:29 PM] 
+Bo komity powinny tak sie robic :wink: to jest dobra praktyka
+
+[9:30] 
+powinno byc co jedna mala funkcjonalnosci :wink: czyli okolo 30min~1h pracy przy zadaniu
+
+szabloreki [9:30 PM] 
+ok e korzystać z Postmana żeby testując w Front się nie bawic?
+
+michal
+[9:30 PM] 
+dokladnie tak :wink:
+
+[9:30] 
+like it! - postman to twoje ulubione narzędzie musi być :wink:
+
+[9:31] 
+Pamietaj, ze odpowiedzi musisz robic res.json() -dlaczego? Dlatego, ze jak zwracasz jsony to frontend moze byc pisany w kazdym jezyku, javascript, jquery, na telefony apliklacja itd :wink: Bo wszystkie obsluguja json :wink:
+
+szabloreki [9:31 PM] 
+ok
+
+[9:31] 
+to wszystko na slacu nie zniknie nie?\
+
+michal
+[9:31 PM] 
+Nie wiem :d, warto zrobic zdjecia :smile: bo do 1000 wiadomosci sie zapisuje
+
+[9:32] 
+wiec inni sie nauczyli zdjecia robic
+
+[9:32] 
+Czyli twoja odpowiedz np na /api./users powinna tak wygladac:
+http://hosting.suprice.today:8012/api/users
+
+szabloreki [9:33 PM] 
+to już umiałbym zrobić
+
+michal
+[9:33 PM] 
+no to super :wink: to powodzenia, ak sie uda wczesniej daj znac to napisze Ci taski na rozbudowe tego
+
+szabloreki [9:33 PM] 
+okej
+
+[9:33] 
+dzięki za wszystko
+
+[9:33] 
+zaczynam od jutra
+
+michal
+[9:33 PM] 
+To ja dziekuje, mam nadzieje, ze sie uda i ruszamy ostro juz z projektami
+
+[9:34] 
+a jak beda pstepy i fajnie api to zacnziemy gadac o $$
+
+szabloreki [9:34 PM] 
+ma się rozumieć XD (oby)
