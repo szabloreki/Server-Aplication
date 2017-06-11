@@ -30,39 +30,44 @@ router.post('/register', (req, res)=>{
   res.end();
 });
 
-router.post('/login', (req, res)=>{
-  let userName = req.body.userName;
-  let password = req.body.password;
-  console.log(userName);
-  console.log(password);
-  let look = {
-    userName: userName,
-    password: password
-  }
+router.get('/register', (req, res)=>{
+  res.sendFile(path.join(__dirname + '/view/register.html'))
+})
 
+router.post('/login', (req, res)=>{
+  let look = req.body;
+  console.log(look);
+  let toData = JSON.stringify(look);
   db.registered.findOne(look,(err, doc)=> {
     if(err){console.log(err)};
     if(!doc){
-      res.send(500);
+      return res.json({"login" : "false"});
     }
     console.log(doc)
     req.session.user = doc;
-    res.send(200);
+    res.json({"login" : "true"});
+
   });
 
 });
 
+router.get('/login', (req, res)=>{
+ res.sendFile(path.join(__dirname + '/view/login.html'));
+});
+
+
 router.get('/dashboard', (req, res)=>{
   if(req.session.user == null){
-   res.status(500);
+   res.status(200).send('You ara not login!')
   }
   else {
-    res.status(200).send("Welcome to super secret API");
+    res.sendFile(path.join(__dirname + '/user/dashboard.html'));
   }
 })
 
 router.get('/logout', (req, res)=>{
   req.session.destroy();
+  res.redirect('/login');
   res.send('Wylogowano!');
 })
 

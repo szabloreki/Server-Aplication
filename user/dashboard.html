@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<meta charset="utf-8" />
+	<title>Stylizowanie formularzy</title>
+	<meta name="description" content="Nauka podstawowego stylizowania elementów formularzy" />
+	<meta name="keywords" content="css, odcinek" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<div id = "container">
+  <button type="button" class="btn btn-danger" id = "logout">Logout</button>
+
+  <div id = "work"> </div>
+  <div id = "mark"> </div>
+  <div id = 'comunicator'></div>
+  <div id ="history"></div>
+</div>
+
+
+
+praca/ocena/komunikat (wiadomosci od szefa) i moze Historia - powiadomienia
+
+
+
+<script>
+
+
+class Ajax {
+	download (){
+		let xhr = new XMLHttpRequest();
+	    xhr.onreadystatechange = function() {
+	    if (xhr.readyState == XMLHttpRequest.DONE) {
+	        alert(xhr.responseText);
+	    };
+			};
+	    xhr.open('GET', '/logout', true);
+	    xhr.send(null);
+	};
+}
+
+
+let ajax =  new Ajax();
+
+let logout = document.querySelector('#logout');
+logout.addEventListener('click', ()=>{
+  ajax.download();
+}, false);
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
